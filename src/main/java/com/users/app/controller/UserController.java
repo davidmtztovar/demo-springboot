@@ -20,9 +20,9 @@ import com.users.app.model.response.User;
 public class UserController {
 	
 	@GetMapping()
-	public String getUsers(@PathVariable String userId)
+	public String getUsers()
 	{
-		return "get user was called with ID: "+ userId;
+		return "get users was called";
 	}
 	
 	@GetMapping(path = "/{userId}",
@@ -47,7 +47,7 @@ public class UserController {
 	public ResponseEntity<User> createUser(@RequestBody User user) {
 		User userTest= new User();
 		userTest.setEmail(user.getEmail());
-		userTest.setFirstName(user.getfirstName());
+		userTest.setFirstName(user.getFirstName());
 		userTest.setLastName(user.getLastName());
 		userTest.setUserId(user.getUserId());
 		return new ResponseEntity<User>(userTest, HttpStatus.OK);
